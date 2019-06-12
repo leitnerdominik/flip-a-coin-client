@@ -1,0 +1,39 @@
+.Container {
+  display: inline-block;
+}
+
+.InnerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Coin {
+  border-radius: 50%;
+  border: 2px solid black;
+  height: 70px;
+  width: 70px;
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+}
+
+.Text {
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.Heads {
+  background: url("../../images/coin_heads.png");
+  background-size: cover;
+}
+
+.Tails {
+  background: url("../../images/coin_tails.png");
+  background-size: cover;
+}
+/*# sourceMappingURL=StatsCoin.module.css.map */

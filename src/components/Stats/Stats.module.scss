@@ -1,0 +1,45 @@
+.Container {
+  display: flex;
+  width: 320px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.Progress {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.StatsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 5px 0;
+
+  span:nth-child(1) {
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+}
+
+.TailsScore {
+  align-items: flex-end;
+}
+
+.ProgessBar {
+  height: 8px;
+  // border: 1px solid black;
+}
+
+.Total {
+  margin: 20px 0;
+  font-size: 1.2rem;
+}

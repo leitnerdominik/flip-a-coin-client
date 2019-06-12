@@ -1,0 +1,38 @@
+@import '../../util/util';
+
+.Container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
+.Button {
+  margin: 20px 0;
+  border: 2px solid $yellow;
+  color: $yellow;
+  padding: 6px 12px;
+  background: transparent;
+  font-size: 24px;
+  &:focus {
+    outline: none;
+  }
+  
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.SpinnerContainer {
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  h2 {
+    margin: 0;
+  }
+}

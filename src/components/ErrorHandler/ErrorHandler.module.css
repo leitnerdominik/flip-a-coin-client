@@ -1,0 +1,20 @@
+.ErrorHandler {
+  width: 300px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #000;
+  background: #fff;
+  z-index: 300;
+  padding: 1rem;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.ErrorHandler header {
+  border-bottom: 2px solid #cf2929;
+  color: #cf2929;
+}
+/*# sourceMappingURL=ErrorHandler.module.css.map */

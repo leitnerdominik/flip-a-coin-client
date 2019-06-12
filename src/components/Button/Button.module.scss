@@ -1,0 +1,35 @@
+@import '../../util/util';
+
+.Button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.Default {
+  border: 2px solid $yellow;
+  color: $yellow;
+  background: none;
+}
+
+.Success {
+  border: 2px solid green;
+  color: green;
+  background: none;
+}
+
+.Danger {
+  border: 2px solid $red;
+  color: $red;
+  background: none;
+}

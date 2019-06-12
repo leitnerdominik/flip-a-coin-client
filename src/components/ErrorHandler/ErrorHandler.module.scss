@@ -1,0 +1,19 @@
+@import '../../util/util';
+
+.ErrorHandler {
+  width: 300px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  background: #fff;
+  z-index: 300;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+  header {
+    border-bottom: 2px solid $red;
+    color: $red;
+  }
+}

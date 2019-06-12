@@ -1,0 +1,34 @@
+.Button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.Button:focus {
+  outline: none;
+}
+
+.Button:hover {
+  text-decoration: underline;
+}
+
+.Default {
+  border: 2px solid #ffaa00;
+  color: #ffaa00;
+  background: none;
+}
+
+.Success {
+  border: 2px solid green;
+  color: green;
+  background: none;
+}
+
+.Danger {
+  border: 2px solid #cf2929;
+  color: #cf2929;
+  background: none;
+}
+/*# sourceMappingURL=Button.module.css.map */
