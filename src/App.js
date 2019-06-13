@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import axios from './axios-coin';
+
 import Coin from './components/Coin/Coin';
 import Stats from './components/Stats/Stats';
 import Modal from './components/Modal/Modal';
@@ -32,10 +34,12 @@ class App extends Component {
 
   signupHandler = async () => {
     try {
-      const res = await fetch('http://localhost:8080/auth/signup', {
-        credentials: 'include',
-        method: 'GET',
-      });
+      // const res = await fetch('http://localhost:8080/auth/signup', {
+      //   credentials: 'include',
+      //   method: 'GET',
+      // });
+      const res = await axios.get('/auth/signup');
+
       if (res.status !== 200) {
         throw new Error('Sign up failed!');
       }
@@ -47,15 +51,15 @@ class App extends Component {
 
   getStatsHandler = async () => {
     try {
-      const res = await fetch('http://localhost:8080/stats/stats');
+      // const res = await fetch('http://localhost:8080/stats/stats');
+      const res = await axios.get('stats/stats');
       if (res.status !== 200) {
         throw new Error('Failed to fetch stats.');
       }
 
-      const resData = await res.json();
       this.setState({
-        numHeads: resData.stats.heads,
-        numTails: resData.stats.tails,
+        numHeads: res.data.stats.heads,
+        numTails: res.data.stats.tails,
       });
     } catch (err) {
       console.log(err);
@@ -68,25 +72,28 @@ class App extends Component {
       let url;
       let userUrl;
       if (side === 'heads') {
-        url = 'http://localhost:8080/stats/heads';
-        userUrl = 'http://localhost:8080/stats/userHeads';
+        url = 'stats/heads';
+        userUrl = 'stats/userHeads';
         this.setState(prevState => ({ numHeads: prevState.numHeads + 1 }));
       } else if (side === 'tails') {
-        url = 'http://localhost:8080/stats/tails';
-        userUrl = 'http://localhost:8080/stats/userTails';
+        url = 'stats/tails';
+        userUrl = 'stats/userTails';
         this.setState(prevState => ({ numTails: prevState.numTails + 1 }));
       }
-      const res = await fetch(url, {
-        method: 'POST',
-      });
+      // const res = await fetch(url, {
+      //   method: 'POST',
+      // });
+      const res = await axios.post(url);
       if (res.status !== 200) {
         throw new Error('Fail to add global stats!');
       }
 
-      const resUserStats = await fetch(userUrl, {
-        credentials: 'include',
-        method: 'POST',
-      });
+      // const resUserStats = await fetch(userUrl, {
+      //   credentials: 'include',
+      //   method: 'POST',
+      // });
+
+      const resUserStats = await axios.post(userUrl);
 
       if (resUserStats.status !== 200) {
         throw new Error('Failed to add User stats!');
@@ -100,15 +107,19 @@ class App extends Component {
   getUserStatsHandler = async () => {
     try {
       this.setState({ loadingUserStats: true });
-      const res = await fetch('http://localhost:8080/stats/userstats', {
-        credentials: 'include',
-        method: 'GET',
+      // const res = await fetch('http://localhost:8080/stats/userstats', {
+      //   credentials: 'include',
+      //   method: 'GET',
+      // });
+      const res = await axios.get('stats/userstats', {
+        withCredentials: true,
       });
+
       if (res.status !== 200) {
         throw new Error('Fetching stats failed!');
       }
-      const resData = await res.json();
-      this.setState({ userStats: resData.user, loadingUserStats: false });
+      // const resData = await res.json();
+      this.setState({ userStats: res.data.user, loadingUserStats: false });
     } catch (err) {
       console.log(err);
       this.setState({ error: err });
