@@ -34,10 +34,6 @@ class App extends Component {
 
   signupHandler = async () => {
     try {
-      // const res = await fetch('http://localhost:8080/auth/signup', {
-      //   credentials: 'include',
-      //   method: 'GET',
-      // });
       const res = await axios.get('/auth/signup');
 
       if (res.status !== 200) {
@@ -51,7 +47,6 @@ class App extends Component {
 
   getStatsHandler = async () => {
     try {
-      // const res = await fetch('http://localhost:8080/stats/stats');
       const res = await axios.get('stats/stats');
       if (res.status !== 200) {
         throw new Error('Failed to fetch stats.');
@@ -80,18 +75,10 @@ class App extends Component {
         userUrl = 'stats/userTails';
         this.setState(prevState => ({ numTails: prevState.numTails + 1 }));
       }
-      // const res = await fetch(url, {
-      //   method: 'POST',
-      // });
       const res = await axios.post(url);
       if (res.status !== 200) {
         throw new Error('Fail to add global stats!');
       }
-
-      // const resUserStats = await fetch(userUrl, {
-      //   credentials: 'include',
-      //   method: 'POST',
-      // });
 
       const resUserStats = await axios.post(userUrl);
 
@@ -107,10 +94,6 @@ class App extends Component {
   getUserStatsHandler = async () => {
     try {
       this.setState({ loadingUserStats: true });
-      // const res = await fetch('http://localhost:8080/stats/userstats', {
-      //   credentials: 'include',
-      //   method: 'GET',
-      // });
       const res = await axios.get('stats/userstats', {
         withCredentials: true,
       });
@@ -118,7 +101,6 @@ class App extends Component {
       if (res.status !== 200) {
         throw new Error('Fetching stats failed!');
       }
-      // const resData = await res.json();
       this.setState({ userStats: res.data.user, loadingUserStats: false });
     } catch (err) {
       console.log(err);
@@ -127,9 +109,6 @@ class App extends Component {
   };
 
   rndSide = () => {
-    // const sides = ['heads', 'tails'];
-    // const index = Math.round(Math.random());
-
     let side;
     if (Math.random() < 0.5) {
       side = 'heads';
