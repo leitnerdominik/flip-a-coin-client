@@ -7,6 +7,8 @@ const baseURL =
     ? 'http://localhost:8080/'
     : process.env.SERVER_NAME;
 
+console.log(process.env.NODE_ENV, baseURL);
+
 const instance = axios.create({
   baseURL,
   withCredentials: true,
