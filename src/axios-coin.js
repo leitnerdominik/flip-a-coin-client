@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-require('dotenv').config();
-
-const baseURL = process.env.API_ENDPOINT;
+const baseURL = 'https://flip-a-coin-server.herokuapp.com/';
 
 const instance = axios.create({
   baseURL,
