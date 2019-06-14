@@ -34,7 +34,7 @@ class App extends Component {
 
   signupHandler = async () => {
     try {
-      const res = await axios.get('/auth/signup');
+      const res = await axios.get('auth/signup');
 
       if (res.status !== 200) {
         throw new Error('Sign up failed!');
